@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_14_062817) do
+ActiveRecord::Schema.define(version: 2021_08_14_063809) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.string "stock_quantity"
+    t.string "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -22,6 +29,8 @@ ActiveRecord::Schema.define(version: 2021_08_14_062817) do
     t.string "transaction_type"
     t.integer "amount"
     t.decimal "price", precision: 5, scale: 2
+    t.integer "user_id"
+    t.integer "stock_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,11 +39,15 @@ ActiveRecord::Schema.define(version: 2021_08_14_062817) do
     t.string "first_name"
     t.string "middle_name"
     t.string "last_name"
-    t.string "email"
     t.integer "balance"
     t.decimal "asset", precision: 5, scale: 2
+    t.string "email"
+    t.string "taggable_type", default: "Photo"
+    t.integer "taggable_id"
+    t.integer "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["taggable_type", "taggable_id"], name: "index_users_on_taggable"
   end
 
 end
