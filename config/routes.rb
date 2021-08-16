@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  devise_for :managements
+  devise_for :accounts
+  get 'stocks/index'
+  get 'transactions/index'
+  get 'transactions/new'
+  get 'transactions/index'
+  get 'user/index'
+  get 'user/edit'
+  get 'user/transaction'
+  root 'home#index'
+  resources :admin
+
 end
