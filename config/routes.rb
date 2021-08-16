@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  devise_for :managements
+  devise_for :accounts
   get 'stocks/index'
   get 'transactions/index'
   get 'transactions/new'
