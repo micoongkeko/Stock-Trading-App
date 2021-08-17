@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2021_08_16_083120) do
     t.decimal "asset", precision: 5, scale: 2
     t.string "email"
     t.string "taggable_type", default: "Photo"
-    t.integer "taggable_id"
+    t.bigint "taggable_id"
     t.integer "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
